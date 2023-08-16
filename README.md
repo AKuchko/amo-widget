@@ -22,6 +22,18 @@
 └── yarn.lock
 ```
 
+## npm/yarn scripts 
+
+```
+yarn run serve // dev server
+
+yarn run build // production build
+
+yarn run widget // production widget build 
+
+yarn run widget:dev // development widget build 
+```
+
 ## Start widget
 
 1. Clone repository 
@@ -32,11 +44,19 @@ git clone $url
 2. Install dependencies
 ```
 npm install or npm ci
+
+or
+
+yarn install 
 ```
 
 3. Build widget for development
 ```
 npm run widget:dev
+
+or 
+
+yarn run widget:dev
 ```
 
 4. Load widget to [amoCRM](https://www.amocrm.ru/developers/content/integrations/upload) 
@@ -44,6 +64,10 @@ npm run widget:dev
 5. Serve project
 ```
 npm run serve 
+
+or 
+
+yarn run serve 
 ```
 6. Done. Widgeet ready to development
 

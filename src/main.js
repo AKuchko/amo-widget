@@ -1,12 +1,22 @@
+import LeadsService from '@/services/leads.service.js'
+
 // здесь мы описываем все callback'и по документации: render, setttings и т.д.
 export default function (widget) {
     widget.callbacks = {
         init() {
-            console.log('init')
+            // console.log('init', widget.setSdkCatalogId)
+            // AMOCRM.notifications.add({ 'header': 'Внимание', 'text': 'соединение установлено'})
             return true 
         },
-        render() {
-            console.log('render')
+        async render() {
+            const LeadsService = await import('@/services/leads.service.js')
+            let location = APP.getBaseEntity()
+            console.log(LeadsService.default.getLeads);
+            // if (location === 'leads') {
+            //     LeadsService.getLeads()
+            //     .then(res => (console.log(res.data)))
+            //     .catch(err => console.error(err))
+            // }
             return true
         },
         settings() {

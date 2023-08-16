@@ -34,6 +34,7 @@ export const config: Config = {
     fakeConfig: {
         required: false
     },
+    locations: [''],
     // поддержииваемые языки 
     locales: ['ru', 'en'],
     // путь, где будет создана папка с виджетом
