@@ -96,7 +96,7 @@ __amo-widget-builder__ – это библиотека для автомати�
 
 В нашем случае это выглядит так: 
 
-```
+```ts
 import { Config } from 'amo-widget-builder';
 
 export const config: Config = {
