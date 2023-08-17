@@ -40,5 +40,6 @@ export const config: Config = {
     outDir: path.resolve(__dirname, '..'),
     // указывем папку, куда будет собираться код для виджета (наш bundle)
     bundleDir: path.resolve(__dirname, '../dist'),
+    imagesDir: path.resolve(__dirname, '../src/assets/images'),
     version: '1.0.0',
 };

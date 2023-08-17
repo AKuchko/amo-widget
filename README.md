@@ -110,7 +110,7 @@ __amo-widget-builder__ – это библиотека для автомати�
 
 В *common.ts* необхрдимо указать путь до нашей директории с ассетами в параметре __imagesDir__:
 
-```common.ts
+```ts
 import { Config } from 'amo-widget-builder';
 
 export const config: Config = {
