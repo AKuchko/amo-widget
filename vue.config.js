@@ -1,20 +1,15 @@
 require('dotenv').config()
-const path = require('path')
-const { WEBPACK_PORT } = process.env
-const publicPath = `https://localhost:${WEBPACK_PORT}`
+
+const { DEV_PORT } = process.env
+const publicPath = `https://localhost:${DEV_PORT}`
 
 module.exports = {
     publicPath,
     configureWebpack: {
         output: {
-            library: 'amo-widget',
-            libraryTarget: 'umd',
-        },
-        resolve: {
-            alias: {
-                '@': path.resolve(__dirname, 'src'),
-            },
-        },
+            library: 'widget',
+            libraryTarget: 'umd'
+        }
     },
     chainWebpack: (config) => {
         config.plugins.delete('html')
@@ -24,7 +19,13 @@ module.exports = {
     },
     devServer: {
         https: true,
-        port: WEBPACK_PORT,
-        // publicPath,
-    },
+        port: DEV_PORT,
+        client: {
+            webSocketURL: {
+                hostname: "0.0.0.0",
+                pathname: "/ws",
+                port: 8080,
+            },
+        },
+    }
 }
