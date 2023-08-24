@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { DEV_PORT } = process.env
+const { DEV_PORT, BASE_URL } = process.env
 const publicPath = `https://localhost:${DEV_PORT}`
 
 module.exports = {
@@ -19,13 +19,13 @@ module.exports = {
     },
     devServer: {
         https: true,
-        port: DEV_PORT,
-        client: {
-            webSocketURL: {
-                hostname: "0.0.0.0",
-                pathname: "/ws",
-                port: 8080,
-            },
-        },
+        port: DEV_PORT, 
+        // client: {
+        //     webSocketURL: {
+        //         hostname: "localhost",
+        //         pathname: "/ws",
+        //         port: 9000,
+        //     },
+        // },
     }
 }

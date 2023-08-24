@@ -20,9 +20,9 @@ export default function (widget) {
         dpSettings() {
 
         },
-        advancedSettings() {
+        async advancedSettings() {
             console.log('Advanced settings');
-            createSettings()
+            await createSettings()
             return true
         },
         destroy() {
