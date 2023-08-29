@@ -21,15 +21,20 @@
         </table>
       </div>
       <CreateForm v-show="mode==='create'" v-model="leadModel" @create="createLead" />
+      <div v-if="isLoading" class="d-flex justify-content-center loading-layout">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
-import backService from '../../services/backService';
+import { computed, ref } from "vue";
 
-import CreateForm from './CreateForm.vue';
+import backService from "../../services/backService";
+import CreateForm from "./CreateForm.vue";
 
 export default {
   name: 'CompanyTable',
@@ -42,17 +47,20 @@ export default {
   setup(props) {
     const modal = ref(null)
     const mode = ref('data')
-    const leadModel = ref({
-      name: `Сделка с компанией ${props.companyData.name.short_with_opf}`,
-      price: '',
-      company: {
-        name: props.companyData.name.short_with_opf,
-        address: props.companyData.address.unrestricted_value,
-        phone: '',
-        email: '',
-        require: true
-      },
-      contacts: []
+    const isLoading = ref(false)
+    const leadModel = computed(() => {
+      return {
+        name: `Сделка с компанией ${props.companyData.name.short_with_opf}`,
+        price: 0,
+        company: {
+          name: props.companyData.name.short_with_opf,
+          address: props.companyData.address.unrestricted_value,
+          phone: '',
+          email: '',
+          require: true
+        },
+        contacts: []
+      }
     })
 
     const openCreate = () => {
@@ -69,7 +77,10 @@ export default {
       })
     }
     const createLead = async () => {
-      await backService.createLead(leadModel.value)
+      isLoading.value = true
+      const { data } = await backService.createLead(leadModel.value)
+      isLoading.value = false
+      window.location.href = `https://allollal.amocrm.ru/leads/detail/${data._embedded.leads[0].id}`
     }
 
     return {
@@ -84,3 +95,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.loading-layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>

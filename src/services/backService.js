@@ -8,6 +8,4 @@ export default {
   createLead(data) {
     return client.post('/amo/createLead', data)
   }
-
-
 }
