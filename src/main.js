@@ -1,12 +1,13 @@
-// здесь мы описываем все callback'и по документации: render, setttings и т.д.
+import { createSettings } from "./app";
+
 export default function (widget) {
     widget.callbacks = {
         init() {
-            console.log('init')
+            console.log('hello');
             return true 
         },
         render() {
-            console.log('render')
+            console.log('render');
             return true
         },
         settings() {
@@ -16,14 +17,26 @@ export default function (widget) {
         bind_actions () {
             return true
         },
-        dpSettings() {},
-        advancedSettings() {},
-        destroy() {},
+        dpSettings() {
+
+        },
+        async advancedSettings() {
+            console.log('Advanced settings');
+            await createSettings()
+            return true
+        },
+        destroy() {
+
+        },
         onSave() {
             return true
         },
-        onAddAsSource(pipeline_id) {},
-        onSalesbotDesignerSave(handler_code, params) {},
+        onAddAsSource(pipeline_id) {
+
+        },
+        onSalesbotDesignerSave(handler_code, params) {
+
+        },
         contacts: {
             selected () {}
         },
@@ -35,8 +48,5 @@ export default function (widget) {
         },
     }
 
-    // script.js, подключаясь к localhost'у, будет выполнять данный файл,
-    // при этом ожидая возврат обьекта widget, 
-    // поэтому возвращаем widget с описанными callback'ами 
     return widget
-} 
+}
