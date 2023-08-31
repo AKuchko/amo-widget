@@ -1,4 +1,4 @@
-import { createSettings } from "./app";
+import { createSettings } from "./advancedSettings";
 
 export default function (widget) {
   widget.callbacks = {
@@ -7,6 +7,7 @@ export default function (widget) {
       return true
     },
     render() {
+      console.log('render');
       return true
     },
     settings() {
@@ -15,33 +16,13 @@ export default function (widget) {
     bind_actions() {
       return true
     },
-    dpSettings() {
-
-    },
-    async advancedSettings() {
-      await createSettings()
+    advancedSettings() {
+      createSettings()
+      console.log('adv sett');
       return true
-    },
-    destroy() {
-
     },
     onSave() {
       return true
-    },
-    onAddAsSource(pipeline_id) {
-
-    },
-    onSalesbotDesignerSave(handler_code, params) {
-
-    },
-    contacts: {
-      selected() { }
-    },
-    leads: {
-      selected() { }
-    },
-    todo: {
-      selected() { }
     },
   }
 

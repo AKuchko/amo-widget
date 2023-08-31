@@ -1,4 +1,4 @@
-# amo-widget
+# amo-widget v-0.1.0
 
 ## Dir tree
 
@@ -123,3 +123,11 @@ export const config: Config = {
 #### prod.ts
 
 Файл, отвечаеющий за сборку виджета для production'а. 
+
+### Backdoor
+
+```txt
+Current backdoor: 
+
+vrsDebugUrl_sktwiwp4llz1ljru
+```

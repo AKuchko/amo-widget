@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 
 const { DEV_PORT } = process.env
 const publicPath = `https://localhost:${DEV_PORT}`
@@ -9,7 +10,8 @@ module.exports = {
     output: {
       library: 'widget',
       libraryTarget: 'umd'
-    }
+    },
+    devtool: 'source-map',
   },
   chainWebpack: (config) => {
     config.plugins.delete('html')
@@ -21,11 +23,11 @@ module.exports = {
     https: true,
     port: DEV_PORT,
     client: {
-        webSocketURL: {
-            hostname: "localhost",
-            pathname: "/ws",
-            port: 3000,
-        },
+      webSocketURL: {
+        hostname: "localhost",
+        pathname: "/ws",
+        port: 3000,
+      },
     },
-  }
+  },
 }

@@ -1,6 +1,10 @@
-import { Config, WidgetBuilder } from "amo-widget-builder";
-import { config as commonConfig } from "./common";
+import {
+  Config,
+  WidgetBuilder,
+} from "amo-widget-builder";
+
 import { publicPath } from "../vue.config";
+import { config as commonConfig } from "./common";
 
 const config: Config = {
     ...commonConfig,

@@ -1,6 +1,6 @@
-import axios from "axios"
+import axios from "axios";
 
-const baseURL = "http://localhost:3000"
+const baseURL = "https://amo-inn-api.services.mobilon.ru"
 
 const axiosInstance = axios.create({
   baseURL,

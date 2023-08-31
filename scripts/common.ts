@@ -1,5 +1,5 @@
-import { Config } from 'amo-widget-builder';
-import * as path from 'path';
+import { Config } from "amo-widget-builder";
+import * as path from "path";
 
 // Данный конфиг используется для настройки amo-widget-builder, а именно для создания manifest.js
 // Многие настройки совпадают с манифестом, но есть и дополнительные поля 

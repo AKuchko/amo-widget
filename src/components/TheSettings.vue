@@ -17,9 +17,13 @@
 </template>
 
 <script>
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+
 import { ref } from "vue";
+
+import backService from "../services/backService.js";
 import ComapnyTable from "./common/ComapnyTable.vue";
-import backService from '../services/backService.js';
 
 export default {
     name: 'TheSettings',

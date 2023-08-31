@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { useModelWrapper } from '../../utils/modelWrapper'
+import { useModelWrapper } from "../../utils/modelWrapper";
 
 export default {
   name: 'CreateForm',

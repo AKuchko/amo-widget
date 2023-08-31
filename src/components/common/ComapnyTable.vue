@@ -31,7 +31,10 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import {
+  computed,
+  ref,
+} from "vue";
 
 import backService from "../../services/backService";
 import CreateForm from "./CreateForm.vue";
@@ -59,6 +62,11 @@ export default {
           email: '',
           require: true
         },
+        user: {
+          id: AMOCRM.constant('user').id,
+          name: AMOCRM.constant('user').name
+        },
+        subdomain: AMOCRM.constant('account').subdomain,
         contacts: []
       }
     })
@@ -78,6 +86,7 @@ export default {
     }
     const createLead = async () => {
       isLoading.value = true
+      console.log(leadModel.value);
       const { data } = await backService.createLead(leadModel.value)
       isLoading.value = false
       window.location.href = `https://allollal.amocrm.ru/leads/detail/${data._embedded.leads[0].id}`
@@ -87,10 +96,11 @@ export default {
       openCreate,
       closeCreate,
       addContact,
+      createLead,
+      isLoading,
       modal,
       mode,
       leadModel,
-      createLead,
     }
   }
 }
